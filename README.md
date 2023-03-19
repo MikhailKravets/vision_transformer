@@ -1,4 +1,4 @@
-# # Build and Train Vision Transformer from Scratch
+# Build and Train Vision Transformer from Scratch
 
 ![logo](.docs/logo.png)
 

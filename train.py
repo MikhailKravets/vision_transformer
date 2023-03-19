@@ -52,7 +52,7 @@ if __name__ == '__main__':
         save_last=True,
         verbose=True
     )
-    es = EarlyStopping(monitor="val_loss", mode="min", patience=20)
+    es = EarlyStopping(monitor="val_loss", mode="min", patience=10)
     lr_monitor = LearningRateMonitor(logging_interval='epoch')
     trainer = pl.Trainer(
         accelerator="mps",

@@ -29,7 +29,6 @@ EMB_DROPOUT = 0.17
 LEARNING_RATE = 1e-4
 WEIGHT_DECAY = 1e-5
 
-# TODO: cover repository with docstring
 if __name__ == '__main__':
     data = CIFAR10DataModule(batch_size=BATCH_SIZE, patch_size=PATCH_SIZE)
 

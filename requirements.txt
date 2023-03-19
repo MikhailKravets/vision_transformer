@@ -1,0 +1,7 @@
+numpy
+pandas
+torch
+torchvision
+tensorboard
+pytorch-lightning
+matplotlib

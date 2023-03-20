@@ -1,6 +1,6 @@
 # Build and Train Vision Transformer from Scratch
 
-![logo](.docs/logo.png)
+![logo](.docs/logo.jpeg)
 
 This repository contains the code to the tutorial
 

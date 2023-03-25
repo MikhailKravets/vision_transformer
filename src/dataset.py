@@ -38,7 +38,8 @@ class PatchifyTransform:
 
 class CIFAR10DataModule(pl.LightningDataModule):
 
-    def __init__(self, batch_size: int, patch_size: int = 4, val_batch_size: int = 16):
+    def __init__(self, batch_size: int, patch_size: int = 4, val_batch_size: int = 16,
+                 im_size: int = 32, rotation_degrees: (int, int) = (-30, 30)):
         """Lightning Data Module that manages CIFAR10 dataset and its data loaders
 
         Args:
@@ -53,6 +54,8 @@ class CIFAR10DataModule(pl.LightningDataModule):
         self.train_transform = transforms.Compose(
             [
                 transforms.RandomHorizontalFlip(),
+                transforms.RandomResizedCrop(size=(im_size, im_size)),
+                transforms.RandomRotation(degrees=rotation_degrees),
                 AutoAugment(AutoAugmentPolicy.CIFAR10),
                 transforms.ToTensor(),
                 transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261)),

@@ -36,8 +36,6 @@ torch.set_float32_matmul_precision('medium')
 
 # TODO: update the code in the tutorial
 # TODO: update train paragraph in the tutorial: text, code, and images
-# TODO: run GPU trained model in CPU
-# TODO: CHECK docstring in the project
 
 if __name__ == '__main__':
     data = CIFAR10DataModule(batch_size=BATCH_SIZE, val_batch_size=VAL_BATCH_SIZE, patch_size=PATCH_SIZE)

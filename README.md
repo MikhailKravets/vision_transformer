@@ -26,7 +26,7 @@ Install PyTorch libraries with the command from [official web-site](https://pyto
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 ```
 
-Then install the rest of the libraries run:
+Then install the rest of the libraries with the command:
 
 ```shell
 pip install -r requirements-cuda.txt

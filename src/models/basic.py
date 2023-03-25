@@ -177,6 +177,7 @@ class ViT(pl.LightningModule):
             emb_dropout: dropout coefficient for InputEmbedding module
             dropout: dropout coefficient for Encoder module
             lr: learning rate coefficient
+            min_lr: minimum value of learning rate a scheduler can set
             weight_decay: weight decay coefficient
             epochs: max number of epochs
         """

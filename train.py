@@ -28,11 +28,16 @@ NUM_ENCODERS = 6
 DROPOUT = 0.1
 EMB_DROPOUT = 0.1
 
-LEARNING_RATE = 1e-4  # 0.95 is still too high. Can try 0.9 or as it was 0.8
+LEARNING_RATE = 1e-4
 MIN_LEARNING_RATE = 2.5e-5
 WEIGHT_DECAY = 1e-6
 
 torch.set_float32_matmul_precision('medium')
+
+# TODO: update the code in the tutorial
+# TODO: update train paragraph in the tutorial: text, code, and images
+# TODO: add correct installation to README
+# TODO: run GPU trained model in CPU
 
 if __name__ == '__main__':
     data = CIFAR10DataModule(batch_size=BATCH_SIZE, val_batch_size=VAL_BATCH_SIZE, patch_size=PATCH_SIZE)
@@ -66,6 +71,6 @@ if __name__ == '__main__':
         log_every_n_steps=LOG_EVERY_N_STEPS,
         max_epochs=MAX_EPOCHS,
         callbacks=[checkpoint_callback, es, lr_monitor],
-        # resume_from_checkpoint=MODELS_DIR.joinpath("last.ckpt")
+        resume_from_checkpoint=MODELS_DIR.joinpath("last.ckpt")
     )
     trainer.fit(model, data)

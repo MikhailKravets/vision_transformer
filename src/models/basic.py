@@ -161,7 +161,8 @@ class Encoder(nn.Module):
 class ViT(pl.LightningModule):
 
     def __init__(self, size: int, hidden_size: int, num_patches: int, num_classes: int, num_heads: int,
-                 num_encoders: int, emb_dropout: float = 0.1, dropout: float = 0.1, lr: float = 1e-4,
+                 num_encoders: int, emb_dropout: float = 0.1, dropout: float = 0.1,
+                 lr: float = 1e-4, min_lr: float = 4e-5,
                  weight_decay: float = 0.1, epochs: int = 200):
         """The main module. Unites the ViT model with training functionality from
         pytorch_lightning
@@ -176,6 +177,7 @@ class ViT(pl.LightningModule):
             emb_dropout: dropout coefficient for InputEmbedding module
             dropout: dropout coefficient for Encoder module
             lr: learning rate coefficient
+            min_lr: minimum value of learning rate a scheduler can set
             weight_decay: weight decay coefficient
             epochs: max number of epochs
         """
@@ -183,6 +185,7 @@ class ViT(pl.LightningModule):
         self.save_hyperparameters()
 
         self.lr = lr
+        self.min_lr = min_lr
         self.weight_decay = weight_decay
         self.epochs = epochs
 
@@ -249,7 +252,7 @@ class ViT(pl.LightningModule):
             Optimizers
         """
         optimizer = AdamW(self.configure_parameters(), lr=self.lr)
-        scheduler = lr_scheduler.CosineAnnealingLR(optimizer, self.epochs)
+        scheduler = lr_scheduler.CosineAnnealingLR(optimizer, self.epochs, eta_min=self.min_lr)
 
         return {"optimizer": optimizer, "lr_scheduler": scheduler}
 

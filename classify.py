@@ -17,7 +17,7 @@ if __name__ == '__main__':
     )
     ds = CIFAR10(BASE_DIR.joinpath('data/cifar'), train=False, transform=None)
 
-    model = ViT.load_from_checkpoint(MODELS_DIR.joinpath('last.ckpt'))
+    model = ViT.load_from_checkpoint(MODELS_DIR.joinpath('epoch=198-step=19502.ckpt'))
     model.eval()
 
     im, c = ds[4]

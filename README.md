@@ -2,9 +2,9 @@
 
 ![logo](.docs/logo.jpeg)
 
-This repository contains the code to the tutorial
+This is the supplementary repository for the tutorial
 
-INSERT LINK
+[Build and Train Vision Transformer from Scratch](https://medium.com/@michkravets/build-and-train-vision-transformer-from-scratch-f206c065bdf8)
 
 ## Install
 
